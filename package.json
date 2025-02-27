@@ -1,0 +1,13 @@
+{
+  "name": "google_books",
+  "version": "1.0.0",
+  "main": "bookconexion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
