@@ -10,7 +10,7 @@ const poblarLibros = async () => {
         // Consulta general sin palabra clave (q=) y limitando a 40 resultados
         const { data } = await axios.get(`${BASE_URL}?q=book&key=${API_KEY}&maxResults=40`);
 
-        if (!data.items) return console.log('❌ No se encontraron libros');
+        if (!data.items) return console.log(' No se encontraron libros');
 
         const libros = data.items.map(item => ({
             titulo: item.volumeInfo.title,
@@ -21,9 +21,9 @@ const poblarLibros = async () => {
         }));
 
         await Book.bulkCreate(libros, { ignoreDuplicates: true });
-        console.log('✅ Libros guardados en MySQL');
+        console.log('Libros guardados en MySQL');
     } catch (error) {
-        console.error('❌ Error al poblar libros:', error);
+        console.error('Error al poblar libros:', error);
     }
 };
 
