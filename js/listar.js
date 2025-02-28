@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const contenedor = document.getElementById("libros");
 
-    // Función para cargar libros
     async function cargarLibros() {
         try {
             const response = await fetch("/api/listar");
@@ -18,8 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    // Función para agregar libro al DOM
-    function agregarLibroDOM(libro) {
+    window.agregarLibroDOM = function (libro) {
         const libroItem = document.createElement("div");
         libroItem.classList.add("list-group-item", "d-flex", "align-items-start", "gap-3", "p-3");
 
@@ -33,8 +31,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 <div class="d-flex gap-2 mt-2">
                     <button class="btn btn-success toggle-btn">Ver más</button>
-                    <button class="btn btn-warning edit-btn">Editar</button>
-                    <button class="btn btn-danger delete-btn">Eliminar</button>
+                    <button class="btn btn-warning edit-btn" data-id="${libro.id}" data-bs-toggle="modal" data-bs-target="#modalAgregarLibro">Editar</button>
+                    <button class="btn btn-danger delete-btn" data-id="${libro.id}">Eliminar</button>
                 </div>
             </div>
         `;
@@ -55,48 +53,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         });
 
-        // Botón "Eliminar"
-        const botonEliminar = libroItem.querySelector(".delete-btn");
-        botonEliminar.addEventListener("click", async () => {
-            try {
-                const response = await fetch(`/api/borrar/${libro.id}`, { method: "DELETE" });
-                if (response.ok) libroItem.remove();
-            } catch (error) {
-                console.error("Error al eliminar:", error);
-            }
-        });
-
         contenedor.appendChild(libroItem);
-    }
+    };
 
-    // Cargar libros al iniciar
     await cargarLibros();
-
-    // Agregar nuevo libro
-    document.querySelector(".btn-primary").addEventListener("click", async function () {
-        const titulo = document.getElementById("titulo").value.trim();
-        const autor = document.getElementById("autor").value.trim();
-        const descripcion = document.getElementById("descripcion").value.trim();
-        const imagen = document.getElementById("imagen").value.trim();
-        const publicado = document.getElementById("publicado").value.trim();
-
-        if (!titulo) return;
-
-        try {
-            const response = await fetch("/api/crear", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ titulo, autor, descripcion, imagen, publicado }),
-            });
-
-            if (response.ok) {
-                const nuevoLibro = await response.json();
-                agregarLibroDOM(nuevoLibro);
-                document.querySelector("#modalAgregarLibro .btn-close").click(); // Cerrar modal
-                document.querySelector("form").reset(); // Limpiar formulario
-            }
-        } catch (error) {
-            console.error("Error al agregar libro:", error);
-        }
-    });
 });
