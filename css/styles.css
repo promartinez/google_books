@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
@@ -230,3 +231,67 @@ footer p {
     margin: 0;
     font-size: 0.9em;
 }
+=======
+body {
+    background-color: #f8f9fa;
+}
+.book-img {
+    width: 180px; /* Aumenté el ancho */
+    height: 250px; /* Aumenté la altura */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.descripcion {
+    transition: max-height 0.3s ease;
+}
+
+
+
+.toggle-btn {
+    font-size: 14px;
+   
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body input,
+.modal-body textarea {
+    border-radius: 5px;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+}
+
+.benefits {
+    background-color: #f8f9fa;
+}
+
+.benefits .card {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.benefits .card:hover {
+    transform: translateY(-5px);
+}
+
+>>>>>>> a56411cd632cb3f91ae0129455d4cd5bf77acfcc
