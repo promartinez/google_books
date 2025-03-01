@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("libros").addEventListener("click", async function (event) {
         if (event.target.classList.contains("delete-btn")) {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-=======
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("libros").addEventListener("click", async function (event) {
         if (event.target.classList.contains("delete-btn")) {
@@ -30,4 +30,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
->>>>>>> a56411cd632cb3f91ae0129455d4cd5bf77acfcc
+
