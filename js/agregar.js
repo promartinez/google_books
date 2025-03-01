@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modalAgregarLibro");
     const form = modal.querySelector("form");
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         btnGuardar.dataset.action = "";
     });
 });
-=======
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modalAgregarLibro");
     const form = modal.querySelector("form");
@@ -64,4 +62,3 @@ document.addEventListener("DOMContentLoaded", function () {
         btnGuardar.dataset.action = "";
     });
 });
->>>>>>> a56411cd632cb3f91ae0129455d4cd5bf77acfcc
